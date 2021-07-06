@@ -7,63 +7,76 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <title>Student management system</title>
   </head>
   <body>
     @include("navbar")
 
-      @if ($layout == 'index')
-        <div class="container-fluid">
-            <div class="row">
-                <section class="col">
-                    @include("studentlist")
-                </section>
-                <section class="col">
+    <div class="row ehader-container justify-content-center">
+        <div class="header">
+            <h1>
+                Student management system
+            </h1>
+        </div>
 
+    </div>
+
+      @if ($layout == 'index')
+        <div class="container-fluid mt-4">
+            <div class="row justify-content-center">
+                <section class="col-md-7">
+                    @include("studentlist")
                 </section>
             </div>
         
         </div>
       @elseif ($layout == 'create')
-      <div class="container-fluid">
+      <div class="container-fluid mt-4">
         <div class="row">
             <section class="col">
                 @include("studentlist")
             </section>
-            <section class="col">
-                <form action="/store" method="POST">
-                    @csrf
-                    <div class="form-group">
-                        <label>CNE</label>
-                        <input name="cne" class="form-control" type="text" placeholder="Enter CNE">
+            <section class="col-md-7">
+                <div class="card mb-3">
+                    <img src="https://www.aacmena.com/Images/blogs/6371963650062478521571940616424.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Create Student information</h5>
                     </div>
-                    <div class="form-group">
-                        <label>first Name</label>
-                        <input name="firstName" class="form-control" type="text" placeholder="Enter firstName">
-                    </div>
-                    <div class="form-group">
-                        <label>Second Name</label>
-                        <input name="secondName" class="form-control" type="text" placeholder="Enter SecondName">
-                    </div>
-                    <div class="form-group">
-                        <label>Age</label>
-                        <input name="age" class="form-control" type="text" placeholder="Enter Age">
-                    </div>
-                    <div class="form-group">
-                        <label>Speciality</label>
-                        <input name="speciality" class="form-control" type="text" placeholder="Enter Speciality">
-                    </div>
-                    <input type="submit" class="btn btn-info" value="save">
-                    <input type="reset" class="btn btn-warning" value="reset">
-                </form>
+                    <form action="/store" method="POST">
+                        @csrf
+                        <div class="form-group">
+                            <label>CNE</label>
+                            <input name="cne" class="form-control" type="text" placeholder="Enter CNE">
+                        </div>
+                        <div class="form-group">
+                            <label>first Name</label>
+                            <input name="firstName" class="form-control" type="text" placeholder="Enter firstName">
+                        </div>
+                        <div class="form-group">
+                            <label>Second Name</label>
+                            <input name="secondName" class="form-control" type="text" placeholder="Enter SecondName">
+                        </div>
+                        <div class="form-group">
+                            <label>Age</label>
+                            <input name="age" class="form-control" type="text" placeholder="Enter Age">
+                        </div>
+                        <div class="form-group">
+                            <label>Speciality</label>
+                            <input name="speciality" class="form-control" type="text" placeholder="Enter Speciality">
+                        </div>
+                        <input type="submit" class="btn btn-info" value="save">
+                        <input type="reset" class="btn btn-warning" value="reset">
+                    </form>
+                </div>
+                
                
             </section>
         </div>
         
         </div> 
       @elseif ($layout == 'show') 
-        <div class="container-fluid">
+        <div class="container-fluid mt-4">
             <div class="row">
                 <section class="col">
                     @include("studentlist")
@@ -74,9 +87,9 @@
             </div>     
         </div> 
       @elseif ($layout == 'edit')
-        <div class="container-fluid">
+        <div class="container-fluid mt-4">
             <div class="row">
-                <section class="col">
+                <section class="col-md-7">
                     @include("studentlist")
                 </section>
                 <section class="col">
@@ -109,7 +122,7 @@
             </div>
         </div> 
       @elseif ($layout == 'udpate') 
-        <div class="container-fluid">
+        <div class="container-fluid mt-4">
             <div class="row">
                 <section class="col">
                     @include("studentlist")
